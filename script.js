@@ -1,6 +1,7 @@
 const userNameInput = document.getElementById("user-name");
 const startBtn = document.getElementById("start-btn");
 const contentComponent = document.getElementById("content");
+const inputWrapper = document.getElementById("input-wrapper");
 
 const counter = document.createElement("div");
 counter.classList.add("count");
@@ -11,6 +12,9 @@ tapper.innerHTML = "tap";
 
 const timer = document.createElement("div");
 timer.classList.add("timer");
+
+const error = document.createElement("div");
+error.classList.add("error");
 
 let userName;
 let count = 0;
@@ -60,7 +64,14 @@ const startTimer = () => {
   }, 1000);
 };
 
+const showError = () => {
+  error.innerHTML = "Name can not be empty";
+  inputWrapper.append(error);
+};
+
 const startGame = () => {
+  userName = userNameInput.value;
+  contentComponent.innerHTML = "";
   contentComponent.append(counter);
   contentComponent.append(tapper);
   contentComponent.append(timer);
@@ -70,9 +81,11 @@ const startGame = () => {
 };
 
 startBtn.addEventListener("click", () => {
-  userName = userNameInput.value;
-  contentComponent.innerHTML = "";
-  startGame();
+  if (userNameInput.value) {
+    startGame();
+  } else {
+    showError();
+  }
 });
 
 tapper.addEventListener("click", () => {

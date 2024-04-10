@@ -21,6 +21,7 @@ body {
   width: 100%;
   padding: 1rem;
   box-sizing: border-box;
+  margin-bottom: 0.4rem;
 }
 
 .user-data .start-btn {
@@ -77,4 +78,8 @@ body {
 
 .score {
   font-size: 3rem !important;
+}
+
+.error {
+  color: rgb(136, 41, 41);
 }
