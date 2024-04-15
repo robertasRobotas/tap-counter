@@ -8,6 +8,8 @@ counter.classList.add("count");
 
 const tapper = document.createElement("button");
 tapper.classList.add("tapper");
+tapper.classList.add("disable-dbl-tap-zoom");
+
 tapper.innerHTML = "tap";
 
 const timer = document.createElement("div");
